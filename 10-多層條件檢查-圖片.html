@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app{
+            border: 1px dashed #333;
+            width: 200px;
+            padding: 10px;
+        }
+        img{
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 渲染區 -->
+    <div id="app">
+        <div v-if="picName == 'pic'">  
+            <img src="./images/pic.jpg" alt="">
+        </div>
+        <div v-else-if="picName == 'pic2'">             
+            <img src="./images/pic2.jpg" alt="">
+        </div>        
+        <p v-else>圖片不存在</p>
+    </div>
+
+    <!-- vue's cdn -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- vue's 撰寫區 -->
+    <script>
+        const app = Vue.createApp({
+            // 資料定義區
+            data() {
+                return {
+                    picName:'pic2'
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+
+</body>
+
+</html>

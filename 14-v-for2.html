@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app>div{
+            border: 1px dashed #333;
+            width: 50%;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        figure{
+            width: 100px;
+            padding: 10px;
+            margin: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+        }
+        figcaption{text-align: center;}
+        img{
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 渲染區 -->
+    <div id="app">
+        <div>            
+            <figure v-for="x in arrImages">
+                <!-- <img v-bind:src="x.picUrl" alt=""> -->
+                <img :src="x.picUrl" alt="">
+                <figcaption>{{x.picName}}</figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <!-- vue's cdn -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- vue's 撰寫區 -->
+    <script>
+        const app=Vue.createApp({
+            // 資料定義區
+            data(){
+                return{
+                    arrImages:[
+                        {picName:'pic', picUrl:'./images/pic.jpg'},
+                        {picName:'pic2', picUrl:'./images/pic2.jpg'}
+                    ]
+
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+
+</body>
+
+</html>

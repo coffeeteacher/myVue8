@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app{
+            border: 1px dashed #333;
+            display: inline-block;
+            padding: 0px 20px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <!-- 渲染區 -->
+    <div id="app">
+        <!-- includes方法，找出要找的內容 -->
+        <p v-if="str1.includes(search)">{{search}} => 存在</p>
+        <p v-else>{{search}} => 不存在</p>
+    </div>
+
+    <!-- vue's cdn -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- vue's 撰寫區 -->
+    <script>
+        const app=Vue.createApp({
+            // 資料定義區
+            data(){
+                return{
+                    // 被搜尋的字串
+                    str1:'HTML, CSS, JS, REACT, VUE',
+                    // 要尋找的字串
+                    search:'CSS'
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>

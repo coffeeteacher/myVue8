@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            border: 1px dashed #333;
+            width: 200px;
+        }
+
+        img {
+            width: 100px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 渲染區 -->
+    <div id="app">
+        <ul>
+            <!-- 類似js中的forEach寫法 -->
+            <!-- 使用迴圈v-for顯示文字陣列內容 -->
+            <li v-for="item in arr1">{{item}}</li>
+
+            <!-- 使用迴圈v-for顯示圖片名稱陣列內容 -->
+            <div>
+                <!-- <img src="./images/pic.jpg" alt=""> -->
+                <p>圖片路徑+名稱陣列</p>
+                <img v-for="x in arr2" v-bind:src="x" alt="">
+                <p>名稱陣列:使用字串字面值寫法</p>
+                <img v-for="y in arr3" v-bind:src=`./images/${y}` alt="">
+            </div>
+        </ul>
+    </div>
+
+    <!-- vue's cdn -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- vue's 撰寫區 -->
+    <script>
+        const app = Vue.createApp({
+            // 資料定義區
+            data() {
+                return {
+                    // 文字陣列
+                    arr1: ['a', 'b', 'c'],
+                    // 圖片路徑+名稱陣列
+                    arr2: ['./images/pic.jpg', './images/pic2.jpg'],
+                    // 圖片名稱陣列
+                    arr3: ['pic.jpg', 'pic2.jpg']
+
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+
+</body>
+
+</html>

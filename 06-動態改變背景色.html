@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app>div {
+            border: 1px dashed #aaa;
+            padding: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 使用三元運算子，檢查變數值是否為true? -->
+        <!-- true:黃色 -->
+        <!-- false:水藍色 -->
+        <div v-bind:style="{backgroundColor:isCheck?'yellow':'skyblue'}">變色區</div>
+        <!-- 簡化綁定指令的寫法： v-bind: => : (v-bind可以省略不寫) -->
+        <div :style="{backgroundColor:isCheck?'yellow':'skyblue'}">變色區</div>
+    </div>
+
+    <!-- vue's cdn -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- vue's 撰寫區 -->
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    isCheck: true
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px dashed #333;
+            width: 80%;
+        }
+
+        /* 偶數列變色 */
+        tr:nth-child(odd) {
+            background-color: bisque;
+        }
+
+        td{
+            padding: 2px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 渲染區 -->
+    <div id="app">
+        <div>
+            <table>
+                <thead>
+                    <tr style="background-color: white;">
+                        <th>序號</th>
+                        <th>書名</th>
+                        <th>單價</th>
+                        <th>作者</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(x, index) in arrBooks">
+                        <td>{{index+1}}</td>
+                        <td>{{x.bookName}}</td>
+                        <td>{{x.bookPrice}}</td>
+                        <td>{{x.bookAuth}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- vue's cdn -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- vue's 撰寫區 -->
+    <script>
+        const app = Vue.createApp({
+            // 資料定義區
+            data() {
+                return {
+                    arrBooks: [
+                        { bookName: 'HTML', bookPrice: 500, bookAuth:'demo1' },
+                        { bookName: 'CSS', bookPrice: 550, bookAuth:'demo2' },
+                        { bookName: 'JS', bookPrice: 600, bookAuth:'demo3' }
+                    ]
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+
+</body>
+
+</html>
